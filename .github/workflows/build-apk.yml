@@ -30,6 +30,7 @@ jobs:
       working-directory: leo-twa/leo-twa
       run: |
         echo "sdk.dir=$ANDROID_SDK_ROOT" > local.properties
+        chmod +x gradlew
         ./gradlew assembleDebug
 
     - name: Upload APK artifact
