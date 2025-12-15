@@ -1,0 +1,20 @@
+cat > index.html <<EOF
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leo Media Player</title>
+    <link rel="manifest" href="manifest.json" />
+  </head>
+  <body>
+    <h1>Leo Media Player</h1>
+    <p>This is your sovereign PWA shell.</p>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js');
+      }
+    </script>
+  </body>
+</html>
+EOF

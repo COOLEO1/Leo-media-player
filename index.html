@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leo Media Player</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Splash Screen -->
+  <div id="splash-screen">
+    <img src="assets/logo.png" alt="Leo Logo" class="logo" />
+    <h1 class="tagline">Your Offline Cinema</h1>
+  </div>
+
+  <!-- Main App -->
+  <div id="app" style="display:none;">
+    <header class="top-bar">
+      <img src="assets/logo.png" class="top-logo" />
+      <h2 class="top-title">Leo Media Player</h2>
+    </header>
+
+    <nav class="tab-bar">
+      <button class="tab active" onclick="switchTab('videos')">🎥 Videos</button>
+      <button class="tab" onclick="switchTab('music')">🎵 Music</button>
+      <button class="tab" onclick="switchTab('downloads')">📥 Downloads</button>
+    </nav>
+
+    <main class="content">
+      <!-- Videos Tab -->
+      <section id="videos" class="tab-content active">
+        <h3>Stream or Watch Videos</h3>
+        <div class="video-controls">
+          <input type="text" id="video-url" placeholder="Paste video URL (MP4 or M3U8)" />
+          <button onclick="loadVideo()">▶️ Play</button>
+        </div>
+        <video id="video-player" controls playsinline></video>
+      </section>
+
+      <!-- Music Tab -->
+      <section id="music" class="tab-content">
+        <h3>Play Local Music</h3>
+        <div class="music-controls">
+          <input type="file" id="music-file" accept="audio/*" onchange="loadMusic()" />
+          <p id="music-title">No track selected</p>
+          <audio id="music-player" controls></audio>
+        </div>
+      </section>
+
+      <!-- Downloads Tab -->
+      <section id="downloads" class="tab-content">
+        <h3>Downloaded Media</h3>
+        <div class="download-controls">
+          <input type="text" id="download-url" placeholder="Paste media URL (MP4, MP3, etc)" />
+          <button onclick="downloadMedia()">⬇️ Download</button>
+        </div>
+        <ul id="download-list"></ul>
+      </section>
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script src="splash.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(() => console.log('✅ Service worker registered'))
+        .catch(err => console.error('❌ Service worker failed:', err));
+    }
+  </script>
+</body>
+</html>

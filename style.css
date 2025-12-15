@@ -1,0 +1,158 @@
+body {
+  margin: 0;
+  background-color: #000;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Splash screen */
+#splash-screen {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: url('assets/splash-bg.jpg') no-repeat center center/cover;
+  animation: fadeOut 1s ease-in-out 3s forwards;
+}
+
+.logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.tagline {
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-shadow: 0 0 10px #000;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* Main UI */
+.top-bar {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #111;
+  border-bottom: 1px solid #333;
+}
+
+.top-logo {
+  width: 40px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.top-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.tab-bar {
+  display: flex;
+  justify-content: space-around;
+  background-color: #111;
+  border-bottom: 1px solid #333;
+}
+
+.tab {
+  flex: 1;
+  padding: 12px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.tab.active {
+  background-color: #222;
+  font-weight: bold;
+}
+
+.content {
+  padding: 20px;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Video player */
+.video-controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+#video-url {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+#video-player {
+  width: 100%;
+  max-height: 60vh;
+  background: #000;
+  border-radius: 6px;
+}
+
+/* Music player */
+.music-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+#music-title {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+#music-player {
+  width: 100%;
+  background: #111;
+  border-radius: 6px;
+}
+
+/* Download manager */
+.download-controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+#download-url {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+#download-list {
+  list-style: none;
+  padding: 0;
+}
+
+#download-list li {
+  margin-bottom: 10px;
+  background: #111;
+  padding: 10px;
+  border-radius: 6px;
+}
