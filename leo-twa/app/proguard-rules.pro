@@ -1,0 +1,2 @@
+-keep class androidx.browser.trusted.** { *; }
+-dontwarn androidx.browser.trusted.**
