@@ -27,7 +27,7 @@ jobs:
         sdkmanager "platform-tools" "platforms;android-34" "build-tools;34.0.0"
 
     - name: Build APK
-      working-directory: leo-twa/leo-twa
+      working-directory: leo-twa
       run: |
         echo "sdk.dir=$ANDROID_SDK_ROOT" > local.properties
         chmod +x gradlew
@@ -37,4 +37,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: leo-media-player-apk
-        path: leo-twa/leo-twa/app/build/outputs/apk/debug/app-debug.apk
+        path: leo-twa/app/build/outputs/apk/debug/app-debug.apk
