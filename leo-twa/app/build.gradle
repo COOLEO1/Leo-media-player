@@ -12,9 +12,9 @@ android {
         versionCode 1
         versionName "1.0"
 
-        // Required for TWA
+        // ✅ Fixed: point to your real Firebase Hosting domain
         manifestPlaceholders = [
-            hostName: "leo-v-85477.web.app"
+            hostName: "leo-media-player.web.app"
         ]
     }
 
